@@ -1,5 +1,7 @@
 # special
 ml-latest*
+*.zip
+*.tsv
 
 # Text files
 Remember_*.txt

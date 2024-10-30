@@ -1,0 +1,19 @@
+
+services:
+    tensorflow-jupyter:
+        image: tensorflow/tensorflow:latest-gpu-jupyter
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - driver: nvidia
+                          count: all
+                          capabilities: [gpu]
+        ports:
+            - "8888:8888"
+        stdin_open: true
+        tty: true
+        restart: unless-stopped
+        volumes:
+            - ./:/tf/
+            - ~/.jupyter:/root/.jupyter
